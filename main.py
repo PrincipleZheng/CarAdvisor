@@ -18,7 +18,7 @@ from functools import partial
 from PyQt5.uic.properties import QtWidgets
 from car import *
 from makeDecision import makeDecision
-import userQuestions1
+import userQuestions
 
 # def convert(ui):
 #     input = ui.plainTextEdit.toPlainText()
@@ -32,7 +32,6 @@ currentIndex = 0
 # 全局变量
 def select(ui):
     cars = []
-    reasons = []
     min_price = 0
     max_price = 0
     if ui.checkBox_10_20.isChecked():
@@ -102,11 +101,17 @@ def select(ui):
         appearance_degree = 3
     elif ui.checkBox_appearance_4.isChecked():
         appearance_degree = 4
-
+    global reasons
     cars.clear()
     reasons.clear()
 
     cars, reasons = makeDecision(min_price, max_price, cartypes, worthy_degree, performance_degree, comfortable_degree,appearance_degree)
+    # print all reasons
+    # for car in cars:
+    #     print(car.name)
+    # for reason in reasons:
+    #     print(reason)
+
     list.clear()
     for car in cars:
         # print(car)
@@ -146,7 +151,7 @@ def select(ui):
         ui.value9.setText(str(list[0].width))
         ui.value10.setText(str(list[0].height))
         ui.value11.setText(str(list[0].wheelbase))
-        # ui.recommendLabel.setText(reasons[0])
+        ui.recommendLabel.setText(reasons[0])
 
         # 设置推荐度 按列表排序 第一为100% 末尾为0%
         ui.progressBar.setProperty("value", recommend_level[0])
@@ -238,7 +243,7 @@ def viewprevious(ui, index):
     local_pic_path = 'pics/' + str(list[currentIndex].number) + '.png'
     ui.label_img.setPixmap(QPixmap(local_pic_path))
     ui.progressBar.setProperty("value", recommend_level[currentIndex])
-    # ui.recommendLabel.setText(reasons[currentIndex])
+    ui.recommendLabel.setText(reasons[currentIndex])
 
 
 def viewnext(ui):
@@ -266,7 +271,7 @@ def viewnext(ui):
     local_pic_path = 'pics/' + str(list[currentIndex].number) + '.png'
     ui.label_img.setPixmap(QPixmap(local_pic_path))
     ui.progressBar.setProperty("value", recommend_level[currentIndex])
-    # ui.recommendLabel.setText(reasons[currentIndex])
+    ui.recommendLabel.setText(reasons[currentIndex])
 
 
 
@@ -275,7 +280,7 @@ if __name__ == '__main__':
     app = QApplication(sys.argv)
 
     MainWindow = QMainWindow()
-    ui = userQuestions1.Ui_MainWindow()
+    ui = userQuestions.Ui_MainWindow()
     ui.setupUi(MainWindow)
 
     # Recommendation = QMainWindow()

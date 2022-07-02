@@ -1,0 +1,64 @@
+PERFORMANCE:
+IF Request_of_Performance is very_high
+AND Car.performace < average_performace
+THEN answer is Car {cf 0.3}
+
+IF Request_of_Performance is very_high
+AND average_performace <= Car.performace < 1.1 * average_performace
+THEN answer is Car {cf 0.5}
+
+IF Request_of_Performance is very_high
+AND 1.1 * average_performace <= Car.performace < 1.2 * average_performace
+THEN answer is Car {cf 0.7}
+
+IF Request_of_Performance is very_high
+AND 1.2 * average_performace <= Car.performace
+THEN answer is Car {cf 0.9}
+
+IF Request_of_Performance is high
+AND Car.performace < average_performace
+THEN answer is Car {cf 0.3}
+
+IF Request_of_Performance is high
+AND average_performace <= Car.performace < 1.1 * average_performace
+THEN answer is Car {cf 0.5}
+
+IF Request_of_Performance is high
+AND 1.1 * average_performace <= Car.performace < 1.2 * average_performace
+THEN answer is Car {cf 0.7}
+
+IF Request_of_Performance is high
+AND 1.2 * average_performace <= Car.performace
+THEN answer is Car {cf 0.7}
+
+IF Request_of_Performance is normal
+AND Car.performace < average_performace
+THEN answer is Car {cf 0.3}
+
+IF Request_of_Performance is normal
+AND average_performace <= Car.performace < 1.1 * average_performace
+THEN answer is Car {cf 0.5}
+
+IF Request_of_Performance is normal
+AND 1.1 * average_performace <= Car.performace < 1.2 * average_performace
+THEN answer is Car {cf 0.5}
+
+IF Request_of_Performance is normal
+AND 1.2 * average_performace <= Car.performace
+THEN answer is Car {cf 0.5}
+
+IF Request_of_Performance is low
+AND Car.performace < average_performace
+THEN answer is Car {cf 0.3}
+
+IF Request_of_Performance is low
+AND average_performace <= Car.performace < 1.1 * average_performace
+THEN answer is Car {cf 0.3}
+
+IF Request_of_Performance is low
+AND 1.1 * average_performace <= Car.performace < 1.2 * average_performace
+THEN answer is Car {cf 0.3}
+
+IF Request_of_Performance is low
+AND 1.2 * average_performace <= Car.performace
+THEN answer is Car {cf 0.3}
