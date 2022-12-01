@@ -1,3 +1,7 @@
 # CarAdvisor
 2022人工智能A-课程项目
-运行方法：下载zip，运行CarAdvisor-app文件夹内的main.exe
+
+How to run: Download the zip, run main.exe in the CarAdvisor-app folder.
+
+Project has been tested on Win10 system with python 3.7 environment.
+
